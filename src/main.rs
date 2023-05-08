@@ -7,7 +7,7 @@ fn main() {
 
     // Use the unwrap_or_else since we need the return value
     // prefered to the match because it is less verbose
-    let config = Config::build(&args).unwrap_or_else(|err| {
+    let config = Config::build(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {err}");
         process::exit(1);
     });
